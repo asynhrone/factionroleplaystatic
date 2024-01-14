@@ -27,7 +27,8 @@ setInterval(function () {
 
 function MoneyUpdate(money) {
     const block = document.getElementById('hud-money');
-    block.innerHTML = pad(money, 9) + '₽';
+    const formattedMoney = Number(money).toLocaleString('ru-RU').replace(/,/g, '.');
+    block.innerHTML = formattedMoney + ' ₽';
 }
 
 var show_speed = 0;
