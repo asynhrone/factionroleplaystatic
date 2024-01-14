@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hud">
+        <div class="logo">
+            <img src="images/logo.png" alt="Logotype" width="180" height="80">
+        </div>
+        <div class="general">
+            <div class="fist">
+                <img src="images/guns/24.png" alt="" width="100px" height="100px">
+                <div class="ammo-value">50/50</div>
+            </div>
+            <div class="progress-bars">
+                <div class="progress-bar">
+                    <progress id="progress-hp" value="50" max="100"></progress>
+                    <div class="hp-value">50</div>
+                </div>
+                <div class="progress-bar">
+                    <progress id="progress-armor" value="100" max="100"></progress>
+                    <div class="arm-value">100</div>
+                </div>
+                <div class="progress-bar">
+                    <progress id="progress-eat" value="50" max="100"></progress>
+                    <div class="eat-value">50</div>
+                </div>
+            </div>
+        </div>
+        <div id="hud-money" class="money">352.192.330 ₽</div>
+        <div class="notifications">
+            <div class="suspect">
+                <div class="notification-name">Розыск</div>
+                <div class="stars">
+                    <img id="wanted_5" class="wanted" src="images/wanted.png" alt="" width="32" height="32">
+                    <img id="wanted_4" class="wanted" src="images/wanted.png" alt="" width="32" height="32">
+                    <img id="wanted_3" class="wanted" src="images/wanted.png" alt="" width="32" height="32">
+                    <img id="wanted_2" class="wanted" src="images/wanted.png" alt="" width="32" height="32">
+                    <img id="wanted_1" class="wanted" src="images/wanted.png" alt="" width="32" height="32">
+                    <img id="wanted_0" class="wanted" src="images/wanted.png" alt="" width="32" height="32">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="map-border"></div>
+    <div id="fps" style="display: none;">30</div>
+</body>
+</html>
