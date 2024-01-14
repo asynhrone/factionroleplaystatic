@@ -13,27 +13,27 @@
         </div>
         <div class="general">
             <div class="fist">
-                <img src="images/guns/24.png" alt="" width="100px" height="100px">
-                <div class="ammo-value">50/50</div>
+                <img id="fist" src="images/guns/24.png" alt="" width="100px" height="100px">
+                <div id="ammo_value" class="ammo-value">50/50</div>
             </div>
             <div class="progress-bars">
                 <div class="progress-bar">
                     <progress id="progress-hp" value="50" max="100"></progress>
-                    <div class="hp-value">50</div>
+                    <div id="hp-value" class="hp-value">50</div>
                 </div>
                 <div class="progress-bar">
                     <progress id="progress-armor" value="100" max="100"></progress>
-                    <div class="arm-value">100</div>
+                    <div id="arm-value" class="arm-value">100</div>
                 </div>
                 <div class="progress-bar">
                     <progress id="progress-eat" value="50" max="100"></progress>
-                    <div class="eat-value">50</div>
+                    <div id="eat-value" class="eat-value">50</div>
                 </div>
             </div>
         </div>
         <div id="hud-money" class="money">352.192.330 ₽</div>
         <div class="notifications">
-            <div class="suspect">
+            <div id="suspect-block" class="suspect">
                 <div class="notification-name">Розыск</div>
                 <div class="stars">
                     <img id="wanted_5" class="wanted" src="images/wanted.png" alt="" width="32" height="32">
@@ -48,6 +48,7 @@
     </div>
     <div class="map-border"></div>
     <div id="fps" style="display: none;">30</div>
-    <script src="js/hud.js"></script>
+
+    <script src="hud.js"></script>
 </body>
 </html>
