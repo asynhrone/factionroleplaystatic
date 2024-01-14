@@ -46,6 +46,7 @@
 .progress-bar progress {
   margin-top: 10px;
   width: 80%;
+  background: none;
 }
 progress::-webkit-progress-bar {
   background: rgba(0, 0, 0, 0.425);
