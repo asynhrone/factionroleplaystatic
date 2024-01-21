@@ -46,6 +46,7 @@
 .progress-bar progress {
   margin-top: 10px;
   width: 80%;
+  background: none;
 }
 progress::-webkit-progress-bar {
   background: rgba(0, 0, 0, 0.425);
@@ -138,4 +139,16 @@ progress::-webkit-progress-value {
   left: 0;
   font-family: 'Proxima Nova Bold';
   font-size: 24px;
+}
+.speedometer {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  right: 0.05vw;
+  bottom: 0.05vw;
+}
+#speed-text {
+  color: rgb(247, 247, 247);
+  font-family: 'Proxima Nova Bold';
+  font-size: 92px;
 }

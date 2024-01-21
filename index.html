@@ -14,7 +14,9 @@
         <div class="general">
             <div class="fist">
                 <img id="fist" src="images/guns/24.png" alt="" width="100px" height="100px">
-                <div id="ammo_value" class="ammo-value">50/50</div>
+                <div id="ammo_value_source">
+                    <p id="ammo_value" class="ammo-value">50/50</p>
+                </div>
             </div>
             <div class="progress-bars">
                 <div class="progress-bar">
@@ -31,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div id="hud-money" class="money">352.192.330 ₽</div>
+        <div id="hud-money" class="money">352 192 330 ₽</div>
         <div class="notifications">
             <div id="suspect-block" class="suspect">
                 <div class="notification-name">Розыск</div>
@@ -46,9 +48,17 @@
             </div>
         </div>
     </div>
-    <div class="map-border"></div>
-    <div id="fps" style="display: none;">30</div>
+    <div class="speedometer">
+        <div class="indicators">
+            <div id="speed-car" style="display: none;">
+                <div id="speed-text">
+                    100
+                </div>
+            </div>             
+        </div>
+    </div>
 
     <script src="hud.js"></script>
+    <script src="dialog.js"></script>
 </body>
 </html>
