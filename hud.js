@@ -3,6 +3,28 @@ function pad(n, width, z) {
   n = n + '';
   return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 }
+
+var fpsOut = document.getElementById('fps');
+
+const getFPS = () =>
+    new Promise(resolve =>
+        requestAnimationFrame(t1 =>
+        requestAnimationFrame(t2 => resolve(1000 / (t2 - t1)))
+    )
+)
+
+
+setInterval(function () {
+    getFPS().then(fps => {
+        var color = "";
+        if(fps < 10) color = "#f04245";
+        if(fps > 10 && fps <= 30) color = "#ffcc00";
+        if(fps > 30) color = "#6699ff";
+        fpsOut.style = `color: ${color};`;
+        fpsOut.innerHTML = Math.round(fps);
+    });
+}, 1000);  
+
 function MoneyUpdate(money) {
     const block = document.getElementById('hud-money');
     const formattedMoney = Number(money).toLocaleString('ru-RU').replace(/,/g, '.');
@@ -239,7 +261,7 @@ function notify(type, text, color) {
             document.getElementById("icon-car").innerHTML = `${value} км`;
         }            
     });
-    xx
+    
     cef.on("show-capture-kill", (text) => {
         document.getElementById("capture-kill").style = "display: block";
         document.getElementById("capture-kill").innerHTML = text;
@@ -340,7 +362,7 @@ function notify(type, text, color) {
         if(wanted > 0) {
             document.getElementById("suspect-block").style = "display: block";
             //update_wanted(wanted);
-            for(var i = 0; i < 5; i ++) {
+            for(var i = 0; i < 6; i ++) {
                 if(i < wanted) {
                     document.getElementById(`wanted_${i}`).style = "opacity: 1";
                 }
@@ -365,3 +387,10 @@ function notify(type, text, color) {
         let test = document.querySelectorAll('.kill-list-item'); 
         test.forEach( e => e.remove() );
     });
+
+    cef.on("show-fps", () => {
+        fpsOut.style = "display: block";
+    });
+    cef.on("hide-fps", () => {
+        fpsOut.style = "display: none";
+    });    
