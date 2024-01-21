@@ -364,4 +364,4 @@ function notify(type, text, color) {
     cef.on("clear-kill-list", () => {
         let test = document.querySelectorAll('.kill-list-item'); 
         test.forEach( e => e.remove() );
-    });xxx 
+    }
