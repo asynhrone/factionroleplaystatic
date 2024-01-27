@@ -4,6 +4,27 @@ function pad(n, width, z) {
     return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
   }
   
+  var fpsOut = document.getElementById('fps');
+  
+  const getFPS = () =>
+      new Promise(resolve =>
+          requestAnimationFrame(t1 =>
+          requestAnimationFrame(t2 => resolve(1000 / (t2 - t1)))
+      )
+  )
+  
+  
+  setInterval(function () {
+      getFPS().then(fps => {
+          var color = "";
+          if(fps < 10) color = "#f04245";
+          if(fps > 10 && fps <= 30) color = "#ffcc00";
+          if(fps > 30) color = "#6699ff";
+          fpsOut.style = `color: ${color};`;
+          fpsOut.innerHTML = Math.round(fps);
+      });
+  }, 1000);  
+  
   function MoneyUpdate(money) {
       const block = document.getElementById('hud-money');
       const formattedMoney = Number(money).toLocaleString('ru-RU').replace(/,/g, '.');
@@ -153,6 +174,34 @@ function pad(n, width, z) {
               notify_text.innerHTML = '';
           }, 3500);  
       }
+  
+      function helpButton(buttonText, leftText) {
+          var notify = document.getElementById("key-help");
+          var button = document.getElementById("key-help-name");
+          var text = document.getElementById("key-help-text");
+      
+          notify.style = "display: flex;";
+          button.innerHTML = buttonText;     
+          text.innerHTML = leftText;   
+  
+          notify.animate([{ opacity: '0' }, { opacity: '1', }], 500);
+      }
+  
+      function hideButton() {
+          var notify = document.getElementById("key-help");
+  
+          var animation = notify.animate([{ opacity: '1' }, { opacity: '0', }], 500); 
+          animation.addEventListener('finish', function() {
+              notify.style = "display: none;";
+          });               
+      }
+  
+      cef.on("show-button", (button, text) => {
+          helpButton(button, text);
+      });
+      cef.on("hide-button", () => {
+          hideButton();
+      });
       
       cef.on("show-center-notify", (type, text) => { notifyCenter(type, text); });
       cef.on("show-notify", (type, text, color) => { notify(type, text, color); });
